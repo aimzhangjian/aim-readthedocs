@@ -1,0 +1,56 @@
+{% load i18n %}
+{% load gravatar %}
+
+<!-- BEGIN header-->
+<div class="header-wrapper">
+                        <header>
+                                <div class="container">
+
+
+                                        <div class="logo-container1">
+                                                <!-- Website Logo -->
+                                                <a href="{% url 'homepage' %}"  title="Document Publishing Platform">
+                                                        <img src="{{ MEDIA_URL }}images/logo3.png" style="height: 30px; margin-top: 0px;" alt="Document Publishing Platform">
+                                                </a>
+                                                <span class="tag-line1">{% trans "aim Document Publishing Platform" %}</span>
+                                        </div>
+
+
+                                        <!-- Start of Main Navigation -->
+                                        <nav class="main-nav">
+                                                <div class="menu-top-menu-container">
+                                                        <ul id="menu-top-menu" class="clearfix">
+                                                                {% if request.user.is_authenticated %}
+                                                                        <li class="current-menu-item"><a href="{% url 'homepage' %}" style="text-decoration:none">{% trans "Home Page" %}</a></li>
+                                                                        <li><a href="{% url 'projects_dashboard' %}" style="text-decoration:none">{% trans "My Projects" %}</a></li>
+                                                                        <li><a href="{% url 'profiles_profile_edit' %}" style="text-decoration:none">{% trans "Settings" %}</a></li>
+                                                                        <li><a href="{% url 'account_logout' %}" style="text-decoration:none">{% trans "LogOut" %}</a></li>
+                                                                {% else %}
+                                                                        <li  class="current-menu-item"><a href="{% url 'homepage' %}" style="text-decoration:none">{% trans "Home Page" %}</a></li>
+                                                                        <li><a href="{% url "account_login" %}" style="text-decoration:none">{% trans "Log in" %}</a></li>
+                                                                {% endif %}
+                                                                <!--<li><a href="#">More</a></li>-->
+                                                                <li><a href="#">{% trans "change language" %}</a>
+                                                                        <ul class="sub-menu" style="text-align: left;">
+                                                                                {% for lang in LANGUAGES %}
+                                                                                        {% if lang.1 == "English" or lang.1 == "Chinese" %}
+                                                                                                <li><a onclick="postLanguage('{{ lang.0 }}')" style="text-decoration:none">{{ lang.0|language_name_local }}</a></li>
+                                                                                        {% endif %}
+                                                                                {% endfor %}
+                                                                                <form id="languageform" action="/i18n/setlang/" method="post">{% csrf_token %}
+                                                                                        <input name="next" type="hidden" value="/" />
+                                                                                        {% csrf_token %}
+                                                                                        <input id="languageinput" name="language" type="hidden" value="" />
+                                                                                        <input type="submit" name="argsubmit" style="display:none"/>
+                                                                                </form>
+                                                                        </ul>
+                                                                </li>
+                                                        </ul>
+                                                </div>
+                                        </nav>
+                                        <!-- End of Main Navigation -->
+
+                                </div>
+                        </header>
+                </div>
+<!-- END header-->

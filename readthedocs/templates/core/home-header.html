@@ -1,0 +1,34 @@
+{% load i18n %}
+
+    <!-- BEGIN header-->
+    <div id="rtfd-header">
+      <div class="wrapper1">
+
+        <div class="table-of-Contents">
+        </div>
+
+        <!-- BEGIN header title-->
+        <div class="home-header-title">
+         <h4>{% trans "AIM Document Platform" %}</h4>
+        </div>
+        <!-- END header title -->
+
+        <div class="search-header">
+            {% include "core/widesearchbar.html" %}
+        </div>
+
+        <!-- BEGIN header links-->
+        <div class="home-header-links">
+          <div class="home-header-links1">
+          {% comment %}Translators: Note, the full sentence goes 'Sign up' 'or' 'Log in'. But unfortunately the three bits have to be separate.{% endcomment %}
+          <a class="reg" style="display: none;" href="{% url "account_signup" %}">{% trans "Sign up" %}</a>
+          <div class="login-box">
+            <p><!--{ % trans "or" %}  --><a class="login" href="{% url "account_login" %}">{% trans "Log in" %}</a></p>
+          </div>
+          </div>
+        </div>
+        <!-- END header links -->
+
+      </div>
+    </div>
+    <!-- END header-->
