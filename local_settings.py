@@ -8,7 +8,7 @@ DATABASES = {
         'NAME': 'readthedocs',
         'USER': 'root',  # Not used with sqlite3.
         'PASSWORD': '572136',
-        'HOST': '192.168.1.6',
+        'HOST': '192.168.1.9',
         'PORT': '3306',
     }
 
