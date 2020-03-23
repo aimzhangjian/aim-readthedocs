@@ -115,6 +115,7 @@ class Virtualenv(PythonEnvironment):
     def install_core_requirements(self):
         """Install basic Read the Docs requirements into the virtualenv."""
         requirements = [
+            'pip==20.0.2'
             'sphinx==1.5.3',
             'Pygments==2.2.0',
             'setuptools==28.8.0',
@@ -133,7 +134,6 @@ class Virtualenv(PythonEnvironment):
             'python',
             self.venv_bin(filename='pip'),
             'install',
-            '--upgrade pip',
             '--use-wheel',
             '-U',
             '--cache-dir',
