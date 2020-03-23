@@ -130,9 +130,10 @@ class Virtualenv(PythonEnvironment):
         ]
 
         cmd = [
-            'python pip install --upgrade pip',
+            'python',
             self.venv_bin(filename='pip'),
             'install',
+            '--upgrade pip',
             '--use-wheel',
             '-U',
             '--cache-dir',
