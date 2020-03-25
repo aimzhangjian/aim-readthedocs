@@ -3922,7 +3922,7 @@ msgstr "关于AIM"
 msgid "Overview"
 msgstr "公司概况"
 
-msgid "News"
+msgid "News"F
 msgstr "信息速递"
 
 msgid "Contact Us"
