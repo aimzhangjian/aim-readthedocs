@@ -1,0 +1,24 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: readthedocs
+  labels:
+    app: readthedocs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: readthedocs
+  template:
+    metadata:
+      labels:
+        app: readthedocs
+    spec:
+      containers:
+        - name: readthedocs
+          image: "192.168.1.9:81/aim-document-platform/aim/readthedocs:latest"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
