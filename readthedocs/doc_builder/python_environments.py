@@ -120,7 +120,6 @@ class Virtualenv(PythonEnvironment):
             'Pygments==2.2.0',
             'setuptools==28.8.0',
             'docutils==0.13.1',
-            'mkdocs==0.15.0',
             'mock==1.0.1',
             'pillow==2.6.1',
             'readthedocs-sphinx-ext<0.6',
